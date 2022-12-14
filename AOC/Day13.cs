@@ -476,7 +476,7 @@
 [[10,6,9,4,[]]]
 [[[],[8,[0,9]],7],[5,1],[5,[],[10,9],0,8]]";
 
-        public override void Run1()
+        public override void Part1()
         {
             var lines = input.Split("\r\n");
             var correct = 0;
@@ -491,7 +491,7 @@
             Answer(correct);
         }
 
-        public override void Run2()
+        public override void Part2()
         {
             var lines = input.Split("\r\n", StringSplitOptions.RemoveEmptyEntries);
             var packages = lines.Select(line => new Package(line)).ToList();

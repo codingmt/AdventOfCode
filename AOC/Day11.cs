@@ -90,7 +90,7 @@ Monkey 7:
     If true: throw to monkey 4
     If false: throw to monkey 0";
 
-        public override void Run1()
+        public override void Part1()
         {
             var monkeys = Monkey.Parse(input);
 
@@ -113,7 +113,7 @@ Monkey 7:
             Answer(topMonkeys[0].Inspections * topMonkeys[1].Inspections);
         }
 
-        public override void Run2()
+        public override void Part2()
         {
             var monkeys = Monkey.Parse(input);
             var modulo = monkeys.Aggregate(1L, (v, m) => v * m.TestValue);

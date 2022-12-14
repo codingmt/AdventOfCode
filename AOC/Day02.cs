@@ -2503,7 +2503,7 @@ C Z
 C Z
 C X";
 
-        public override void Run1()
+        public override void Part1()
         {
             var lines = input.Split("\r\n");
             var scores = new Dictionary<string, int>
@@ -2522,7 +2522,7 @@ C X";
             Answer(lines.Sum(x => scores[x]));
         }
 
-        public override void Run2()
+        public override void Part2()
         {
             var lines = input.Split("\r\n");
             var scores = new Dictionary<string, int>

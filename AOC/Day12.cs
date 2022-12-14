@@ -55,7 +55,7 @@ abaacccccccccccccccccccccccccccaaaaaacccaaaaaaaaaaaccaaacaaccaaaaaaaaaaaaaccccca
 abcccccccccccccccccccccccccccccaaaaaccccaacaacaaaaacccaaccccccaaaaaaaaaaaacccccaaaaacccccccccaaaaaaaccccccccccccccccccccccccccccccaaacccccccccccccccaaaaaa
 abcccccccccccccccccccccccccccaaaaaaaccccccccaaaaaaaaccccccccccaaaaaaaaaaccccccaaaaaaccccccccaaaaaaaaccccccccccccccccccccccccccccccccccccccccccccccccaaaaaa";
 
-        public override void Run1()
+        public override void Part1()
         {
             /*// Attempt 1 - fail due to inefficiency
             var paths = GetPaths();
@@ -248,7 +248,7 @@ abcccccccccccccccccccccccccccaaaaaaaccccccccaaaaaaaaccccccccccaaaaaaaaaaccccccaa
             Answer(sptSet[endpos].Distance - 2); //Subtract 2 for some reason
         }
 
-        public override void Run2()
+        public override void Part2()
         {
             // Attempt 3: Dijkstra algorithm
             var field = input.Split("\r\n");

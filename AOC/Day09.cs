@@ -2022,7 +2022,7 @@ L 10
 D 10
 R 5";
 
-        public override void Run1()
+        public override void Part1()
         {
             var head = new Knot();
             var tail = new Knot();
@@ -2061,7 +2061,7 @@ R 5";
             Answer(touchedPositions.Count);
         }
 
-        public override void Run2()
+        public override void Part2()
         {
             Knot next, tail = null;
             var head = next = new Knot { Name = "H" };

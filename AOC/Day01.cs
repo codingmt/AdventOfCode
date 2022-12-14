@@ -2240,7 +2240,7 @@
 4191
 1482";
 
-        public override void Run1()
+        public override void Part1()
         {
             var lines = input.Split("\r\n");
             int total = 0, max = 0;
@@ -2260,7 +2260,7 @@
             Answer(max);
         }
 
-        public override void Run2()
+        public override void Part2()
         {
             var lines = input.Split("\r\n");
             var totals = new List<int>();

@@ -1003,7 +1003,7 @@
 15-15,14-51
 7-20,6-21";
 
-        public override void Run1()
+        public override void Part1()
         {
             var lines = input.Split("\r\n");
             var count = 0;
@@ -1017,7 +1017,7 @@
             Answer(count);
         }
 
-        public override void Run2()
+        public override void Part2()
         {
             var lines = input.Split("\r\n");
             var count = 0;

@@ -108,7 +108,7 @@
 211212213121303211020441232042142451254444244521121152121224435112515234204202321124222332312210022
 202120032200122003044340422223002041534554215334252122413441432141223402244034330212233311001312221";
         
-        public override void Run1()
+        public override void Part1()
         {
             var grid = input.Split("\r\n");
             var visible = new bool[grid.Length][];
@@ -184,7 +184,7 @@
             Answer(visible.Sum(row => row.Count(x => x)));
         }
 
-        public override void Run2()
+        public override void Part2()
         {
             var grid = input.Split("\r\n");
             var scenicScores = new int[grid.Length][];

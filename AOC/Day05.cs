@@ -514,7 +514,7 @@ move 9 from 6 to 7
 move 1 from 2 to 4
 move 1 from 9 to 5";
 
-        public override void Run1()
+        public override void Part1()
         {
             var stacks = GetStacks();
             var lines = input.Split("\r\n");
@@ -533,7 +533,7 @@ move 1 from 9 to 5";
             Answer(stacks.Aggregate("", (r, s) => r + s.Last()));
         }
 
-        public override void Run2()
+        public override void Part2()
         {
             var stacks = GetStacks();
             var lines = input.Split("\r\n");

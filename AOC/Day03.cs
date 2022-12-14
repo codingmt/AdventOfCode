@@ -303,7 +303,7 @@ nPPssTBnMJPdtHPVHtRhpv
 bSSgGFWDgWwDFFlmWlcShqdpRqpVcHvvnqpvpRHd
 bGFnGljgSsjBCTBszz";
 
-        public override void Run1()
+        public override void Part1()
         {
             var lines = input.Split("\r\n");
             var total = 0;
@@ -343,7 +343,7 @@ bGFnGljgSsjBCTBszz";
             };
         }
 
-        public override void Run2()
+        public override void Part2()
         {
             var lines = input.Split("\r\n");
             var total = 0;

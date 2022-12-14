@@ -289,7 +289,7 @@ noop
 noop
 noop";
 
-        public override void Run1()
+        public override void Part1()
         {
             var X = 1;
             var cycle = 0;
@@ -329,7 +329,7 @@ noop";
             }
         }
 
-        public override void Run2()
+        public override void Part2()
         {
             var X = 1;
             var cycle = 0;

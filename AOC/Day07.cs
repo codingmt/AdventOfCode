@@ -1128,13 +1128,13 @@ $ cd rrfflbql
 $ ls
 162371 nnch.pnm";
 
-        public override void Run1()
+        public override void Part1()
         {
             var fs = ParseInput();
             Answer(fs.GetAllDirectories().Where(x => x.GetSize() < 100_000).Sum(x => x.GetSize()));
         }
 
-        public override void Run2()
+        public override void Part2()
         {
             const int totalSpace = 70_000_000;
             const int neededSpace = 30_000_000;
