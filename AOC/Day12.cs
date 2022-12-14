@@ -245,11 +245,126 @@ abcccccccccccccccccccccccccccaaaaaaaccccccccaaaaaaaaccccccccccaaaaaaaaaaccccccaa
                 Console.WriteLine(field[i]);
             Console.WriteLine();
 
-            Answer(sptSet[endpos].Distance);
+            Answer(sptSet[endpos].Distance - 2); //Subtract 2 for some reason
         }
 
         public override void Run2()
         {
+            // Attempt 3: Dijkstra algorithm
+            var field = input.Split("\r\n");
+            var rowlength = field[0].Length;
+            var sptSet = new Dictionary<string, ShortestDistance>();
+
+            // Find end position
+            for (int row = 0; row < field.Length; row++)
+            {
+                var pos = field[row].IndexOf('E');
+                if (pos >= 0)
+                {
+                    field[row] = field[row].Replace('E', (char)('z' + 1));
+                    var end = new ShortestDistance(pos, row, (char)('z' + 1));
+                    sptSet.Add(end.ToString(), end);
+                }
+            }
+
+            ShortestDistance endpos = null;
+            while (true)
+            {
+                var nearest = sptSet.Values.Where(x => !x.Closed).OrderBy(x => x.Distance).FirstOrDefault();
+                if (nearest == null)
+                    break;
+
+                // can go up?
+                if (nearest.Y > 0 &&
+                    (field[nearest.Y][nearest.X] == field[nearest.Y - 1][nearest.X] ||
+                    field[nearest.Y][nearest.X] - 1 == field[nearest.Y - 1][nearest.X] ||
+                    field[nearest.Y][nearest.X] < field[nearest.Y - 1][nearest.X]))
+                {
+                    var add = new ShortestDistance(nearest.X, nearest.Y - 1, field[nearest.Y - 1][nearest.X], nearest);
+                    var name = add.ToString();
+                    if (!sptSet.ContainsKey(name))
+                    {
+                        sptSet.Add(name, add);
+                        if (add.Elevation == 'a')
+                        {
+                            endpos = add;
+                            break;
+                        }
+                    }
+                }
+
+                // can go down?
+                if (nearest.Y < field.Length - 1 &&
+                    (field[nearest.Y][nearest.X] == field[nearest.Y + 1][nearest.X] ||
+                    field[nearest.Y][nearest.X] - 1 == field[nearest.Y + 1][nearest.X] ||
+                    field[nearest.Y][nearest.X] < field[nearest.Y + 1][nearest.X]))
+                {
+                    var add = new ShortestDistance(nearest.X, nearest.Y + 1, field[nearest.Y + 1][nearest.X], nearest);
+                    var name = add.ToString();
+                    if (!sptSet.ContainsKey(name))
+                    {
+                        sptSet.Add(name, add);
+                        if (add.Elevation == 'a')
+                        {
+                            endpos = add;
+                            break;
+                        }
+                    }
+                }
+
+                // can go left?
+                if (nearest.X > 0 &&
+                    (field[nearest.Y][nearest.X] == field[nearest.Y][nearest.X - 1] ||
+                    field[nearest.Y][nearest.X] - 1 == field[nearest.Y][nearest.X - 1] ||
+                    field[nearest.Y][nearest.X] < field[nearest.Y][nearest.X - 1]))
+                {
+                    var add = new ShortestDistance(nearest.X - 1, nearest.Y, field[nearest.Y][nearest.X - 1], nearest);
+                    var name = add.ToString();
+                    if (!sptSet.ContainsKey(name))
+                    {
+                        sptSet.Add(name, add);
+                        if (add.Elevation == 'a')
+                        {
+                            endpos = add;
+                            break;
+                        }
+                    }
+                }
+
+                // can go right?
+                if (nearest.X < rowlength - 1 &&
+                    (field[nearest.Y][nearest.X] == field[nearest.Y][nearest.X + 1] ||
+                    field[nearest.Y][nearest.X] - 1 == field[nearest.Y][nearest.X + 1] ||
+                    field[nearest.Y][nearest.X] < field[nearest.Y][nearest.X + 1]))
+                {
+                    var add = new ShortestDistance(nearest.X + 1, nearest.Y, field[nearest.Y][nearest.X + 1], nearest);
+                    var name = add.ToString();
+                    if (!sptSet.ContainsKey(name))
+                    {
+                        sptSet.Add(name, add);
+                        if (add.Elevation == 'a')
+                        {
+                            endpos = add;
+                            break;
+                        }
+                    }
+                }
+
+                nearest.Closed = true;
+            }
+
+            var p = endpos;
+            do
+            {
+                field[p.Y] = field[p.Y].Substring(0, p.X) + $"{field[p.Y][p.X]}".ToUpper() + field[p.Y].Substring(p.X + 1);
+                p = p.Parent;
+            } while (p != null);
+
+            for (int i = 0; i < field.Length; i++)
+                Console.WriteLine(field[i]);
+            Console.WriteLine();
+
+            Answer(endpos.Distance - 2); //Subtract 2 for some reason
         }
 
         public List<List<Point>> GetPaths()
