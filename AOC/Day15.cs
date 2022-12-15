@@ -163,7 +163,7 @@ Sensor at x=3149491, y=3998374: closest beacon is at x=3191440, y=3801895";
                 Ascends = To.Y > From.Y;
             }
 
-            public static PointWithOpenSide? operator *(Line left, Line right)
+            public static PointWithOpenSide operator *(Line left, Line right)
             {
                 if (left == right || left.Ascends == right.Ascends) return null;
 
