@@ -7,7 +7,7 @@ internal class Program
     [STAThread]
     private static void Main()
     {
-        var day = new Day02();
+        var day = new Day05();
         day.Part1();
         Console.WriteLine();
         day.Part2();
