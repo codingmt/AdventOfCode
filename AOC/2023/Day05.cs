@@ -133,9 +133,9 @@ namespace AOC._2023
 
                 public Range(uint from, uint to, uint length)
                 {
-                    this.From = from;
-                    this.To = to;
-                    this.Length = length;
+                    From = from;
+                    To = to;
+                    Length = length;
                 }
             }
         }
