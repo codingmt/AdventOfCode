@@ -8,7 +8,7 @@ internal class Program
     [STAThread]
     private static void Main()
     {
-        var day = new Day07();
+        var day = new Day08();
 
         var stopwatch = new Stopwatch();
         
